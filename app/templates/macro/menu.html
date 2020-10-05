@@ -1,0 +1,14 @@
+<!-- Sidebar menu-->
+{% macro build_site_navigation(pages, selected) %}
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+    <ul class="side-menu">
+        {% for page in pages %}
+        <li class="slide">
+            <a class="side-menu__item {% if selected == page.name %} active {% endif %}" href="{{ page.url }}"><i class="side-menu__icon fa {{page.icon}}"></i><span class="side-menu__label">{{ page.name }}</span></i></a>
+        </li>
+        {% endfor %}
+    </ul>
+</aside>
+<!--sidemenu end-->
+{% endmacro %}

@@ -1,0 +1,40 @@
+{% macro build_site_header(app_name) %}
+<!--app-header-->
+<div class="app-header header d-flex">
+    <div class="container-fluid">
+        <div class="d-flex">
+            <a class="header-brand" href="index.html">
+                <img src="{{ url_for('static', filename='assets/images/brand/logo.png') }}" class="header-brand-img" alt="splink logo">
+            </a><!-- logo-->
+            <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a><!-- sidebar-toggle-->
+            <a href="#" data-toggle="search" class="nav-link nav-link d-md-none navsearch"><i class="fa fa-search"></i></a><!-- search icon -->
+            <div class="dropdown d-none d-md-flex">
+                <a  class="nav-link icon full-screen-link">
+                    <i class="fe fe-maximize-2"  id="fullscreen-button"></i>
+                </a>
+            </div><!-- full-screen -->
+            <div class="d-flex order-lg-2 ml-auto horizontal-dropdown">
+                <div class="dropdown dropdown-toggle">
+                    <a href="#" class="nav-link leading-none" data-toggle="dropdown">
+                        <span class="avatar avatar-md brround">
+                            <img src="{{ url_for('static', filename='assets/custom/img/default-avatar.png') }}" alt="Profile-img" class="avatar avatar-md brround">
+                        </span>
+                        <span class="mr-3 d-none d-lg-block ">
+                            <span class="text-gray-white"><span class="ml-2">{{ session['name'] }}</span></span>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                        <a class="dropdown-item" href="#">
+                            <i class="dropdown-icon  mdi mdi-settings"></i> Settings
+                        </a>
+                        <a class="dropdown-item" href="/user/logout">
+                            <i class="dropdown-icon mdi  mdi-logout-variant"></i> Sign out
+                        </a>
+                    </div>
+                </div><!-- profile -->
+            </div>
+        </div>
+    </div>
+</div>
+<!--app-header end-->
+{% endmacro %}

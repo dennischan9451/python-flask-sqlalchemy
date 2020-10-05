@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<meta name="msapplication-TileColor" content="#0061da">
+		<meta name="theme-color" content="#1643a3">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+		<!-- Title -->
+		<title>Login | {{ app_name }}</title>
+		
+        <!-- Dashboard css -->
+		<link href="{{ url_for('static', filename='assets/css/dashboard.css') }}" rel="stylesheet" />
+		
+		<!-- Font family -->
+		<link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
+		
+        <!--C3 Charts css -->
+        <link href="{{ url_for('static', filename='assets/plugins/charts-c3/c3-chart.css') }}" rel="stylesheet" />
+
+        <!-- Custom scroll bar css-->
+        <link href="{{ url_for('static', filename='assets/plugins/scroll-bar/jquery.mCustomScrollbar.css') }}" rel="stylesheet" />
+
+        <!-- Sidemenu css -->
+        <link href="{{ url_for('static', filename='assets/plugins/toggle-sidebar/sidemenu.css') }}" rel="stylesheet" />
+
+        <!---Font icons css-->
+        <link href="{{ url_for('static', filename='assets/plugins/iconfonts/plugin.css') }}" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='assets/fonts/fonts/font-awesome.min.css') }}" rel="stylesheet" />
+
+  </head>
+	<body class="login-img">
+		<div class="page">
+		
+		    <!-- page-single -->
+			<div class="page-single">
+				<div class="container">
+					<div class="row">
+						<div class="col mx-auto">
+							<div class="text-center mb-6">
+								<img src="{{ url_for('static', filename='assets/images/brand/logo-light.png') }}" class="" alt="">
+							</div>
+							<form action="/auth/signin/" method="POST">
+								<div class="row justify-content-center">
+									<div class="col-md-8 col-lg-6 col-xl-5 col-sm-7 ">
+										<div class="card-group mb-0">
+											<div class="card p-4">
+												<div class="card-body">
+													<h1 class="text-center">Welcome to {{ app_name }}</h1>
+													<p class="text-muted">Already member? Please Login here</p>
+													{% if alert %}
+													<div class="row">
+														<div class="col-12">
+															<div class="alert alert-danger" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>{{ alert }}</div>
+														</div>
+													</div>
+													{% endif %}
+													<div class="input-group mb-3">
+														<span class="input-group-addon"><i class="fa fa-user"></i></span>
+														<input type="email" class="form-control" name="email" placeholder="Email">
+													</div>
+													<div class="input-group mb-4">
+														<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+														<input type="password" class="form-control" name="password" placeholder="Password">
+													</div>
+													<div class="row">
+														<div class="col-12">
+															<button type="submit" class="btn btn-gradient-primary btn-block">Login</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div><!-- col end -->
+								</div><!-- row end -->
+							</form>
+						</div>
+					</div><!-- row end -->
+				</div>
+			</div>
+			<!-- page-single end -->
+		</div>
+
+
+        <!-- Jquery js-->
+        <script src="{{ url_for('static', filename='assets/js/vendors/jquery-3.2.1.min.js') }}"></script>
+		
+        <!--Bootstrap js-->
+        <script src="{{ url_for('static', filename='assets/js/vendors/bootstrap.bundle.min.js') }}"></script>
+		
+        <!--Jquery Sparkline js-->
+        <script src="{{ url_for('static', filename='assets/js/vendors/jquery.sparkline.min.js') }}"></script>
+		
+        <!-- Chart Circle js-->
+        <script src="{{ url_for('static', filename='assets/js/vendors/circle-progress.min.js') }}"></script>
+		
+        <!-- Star Rating js-->
+        <script src="{{ url_for('static', filename='assets/plugins/rating/jquery.rating-stars.js') }}"></script>
+		
+        <!-- Custom scroll bar js-->
+        <script src="{{ url_for('static', filename='assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+
+	</body>
+</html>

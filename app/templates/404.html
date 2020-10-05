@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<meta name="msapplication-TileColor" content="#2d89ef">
+		<meta name="theme-color" content="#4188c9">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+		<!-- Title -->
+		<title>404 | {{ app_name }}</title>
+		
+        <!-- Dashboard css -->
+        <link href="{{ url_for('static', filename='assets/css/dashboard.css') }}" rel="stylesheet" />
+		
+		<!-- Font family -->
+		<link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
+		
+		<!--C3 Charts css -->
+		<link href="{{ url_for('static', filename='assets/plugins/charts-c3/c3-chart.css') }}" rel="stylesheet" />
+
+		<!-- Custom scroll bar css-->
+		<link href="{{ url_for('static', filename='assets/plugins/scroll-bar/jquery.mCustomScrollbar.css') }}" rel="stylesheet" />
+		
+		<!---Font icons css-->
+		<link href="{{ url_for('static', filename='assets/plugins/iconfonts/plugin.css') }}" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='assets/fonts/fonts/font-awesome.min.css') }}" rel="stylesheet" />
+		
+	</head>
+	<body class="bg-gradient-primary">
+	<!-- page -->
+		<div class="page">
+		
+		    <!-- page-content -->
+			<div class="page-content">
+				<div class="container text-center text-white">
+					<div class="display-1 text-white mb-5"> 404</div>
+					<p class="h5 font-weight-normal mb-7 leading-normal">Sorry, an error has occured, Requested page not found!</p>
+					<a class="btn btn-success" href="/">
+						Back To Home
+					</a>
+				</div>
+			</div>
+			<!-- page-content end-->
+		</div>
+		<!-- page end -->
+		
+		<!-- Jquery js-->
+		<script src="{{ url_for('static', filename='assets/js/vendors/jquery-3.2.1.min.js') }}"></script>
+		
+		<!--Bootstrap js-->
+		<script src="{{ url_for('static', filename='assets/js/vendors/bootstrap.bundle.min.js') }}"></script>
+		
+		<!--Jquery Sparkline js-->
+		<script src="{{ url_for('static', filename='assets/js/vendors/jquery.sparkline.min.js') }}"></script>
+		
+		<!-- Chart Circle js-->
+		<script src="{{ url_for('static', filename='assets/js/vendors/circle-progress.min.js') }}"></script>
+		
+		<!-- Star Rating js-->
+		<script src="{{ url_for('static', filename='assets/plugins/rating/jquery.rating-stars.js') }}"></script>
+		
+		<!-- Custom scroll bar js-->
+		<script src="{{ url_for('static', filename='assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+		
+	</body>
+</html>

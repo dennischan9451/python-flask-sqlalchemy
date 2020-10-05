@@ -1,0 +1,42 @@
+https://www.youtube.com/watch?v=Gu32NNsZPEU&feature=youtu.be
+
+https://eworld.dxn2u.com/index.php?r=site/login&amp;amp;ajax=0
+Username : 144155555
+password : Medo1996
+
+-What data needed to be scraped from each account ?
+PPV amount, PGPV,
+the system need to be explain how it works but generally yes
+
+1. Integrating Login with system.
+2. Generating user friendly diagrams.
+3. Creating Bonus calculating system.
+4. Providing plan to the customer based on data.
+
+My feedback
+- Login System
+Selenium Web drvier will be used for login and scraping. No better solution.
+Captcha pass : There are some 3rd party services to provide APIs to solve captchas.
+Since it's simple image captcha so I will develop a solution myself.
+
+Download captcha image, Detect numbers with OpenCV and Tenserflow.
+
+- Generating user friendly diagrams
+* Scraping Data
+No API.
+Scrape data from the web page directly.
+
+* Storing data and visualization.
+Table are not enough since users are not technical savy.
+Javascript libraries can be used to generate User friendly Diagram.
+Javascript Char libraries, or D3.js.(Integration of D3 would take a bit more time.)
+https://d3js.org/
+
+My requirement : 
+# Required fields with screenshot and description(pptx).
+# How does the diagram looks like, or simple UI/UX sketch design if possible.
+# How can they interact? Which data can be interacted with which formula and how etc..
+
+- Creating Bonus calculating system.
+- Providing plan to the customer based on data.
+Can be discussed after Stage 1 and 2 completed.

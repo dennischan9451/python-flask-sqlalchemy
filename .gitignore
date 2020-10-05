@@ -1,0 +1,11 @@
+venv/
+docs/
+__pycache__/
+geckodriver.log
+Predicted_captcha.jpg
+app/mod_bot/ppv_data.xlsx
+app/mod_bot/captcha.png
+app/mod_bot/~$ppv_data.xlsx
+.vscode/
+test.py
+app/mod_bot/ppv_extra_data.xlsx

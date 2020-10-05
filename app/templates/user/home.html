@@ -1,0 +1,454 @@
+{% import "macro/menu.html" as menu %}
+{% import "macro/header.html" as header %}
+{% import "macro/footer.html" as footer %}
+<!doctype html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<meta name="msapplication-TileColor" content="#0061da">
+		<meta name="theme-color" content="#1643a3">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+		<!-- Title -->
+		<title>{{ name }} | {{ app_name }}</title>
+		<style>
+	
+			.node {
+				cursor: pointer;
+			}
+		
+			.node circle {
+			  fill: #fff;
+			  stroke: steelblue;
+			  stroke-width: 3px;
+			}
+		
+			.node text {
+			  font: 12px sans-serif;
+			}
+		
+			.link {
+			  fill: none;
+			  stroke: #ccc;
+			  stroke-width: 2px;
+			}
+			
+		</style>
+
+		<!-- Dashboard css -->
+        <link href="{{ url_for('static', filename='assets/css/dashboard.css') }}" rel="stylesheet" />
+		
+		<!-- Font family -->
+		<link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700" rel="stylesheet">
+		
+		<!--C3 Charts css -->
+        <link href="{{ url_for('static', filename='assets/plugins/charts-c3/c3-chart.css') }}" rel="stylesheet" />
+
+        <!-- Custom scroll bar css-->
+        <link href="{{ url_for('static', filename='assets/plugins/scroll-bar/jquery.mCustomScrollbar.css') }}" rel="stylesheet" />
+
+		<!-- Sidemenu css -->
+        <link href="{{ url_for('static', filename='assets/plugins/toggle-sidebar/sidemenu.css') }}" rel="stylesheet" />
+
+        <!---Font icons css-->
+        <link href="{{ url_for('static', filename='assets/plugins/iconfonts/plugin.css') }}" rel="stylesheet" />
+        <link href="{{ url_for('static', filename='assets/fonts/fonts/font-awesome.min.css') }}" rel="stylesheet" />
+		
+	</head>
+	
+	<body class="app sidebar-mini rtl">
+		
+		<!--Global-Loader-->
+		<div id="global-loader"></div>
+		
+		<div class="page">
+			<div class="page-main">
+
+				{{header.build_site_header(app_name)}}
+							
+                {{menu.build_site_navigation(pages=pages, selected="Home")}}
+                
+				<!-- app-content -->
+				<div class="app-content  my-3 my-md-5">
+					<div class="side-app">
+						<!-- page-header -->
+						<div class="page-header">
+							<h4 class="page-title">{{ name }}</h4>
+							<ol class="breadcrumb"><!-- breadcrumb -->
+								<li class="breadcrumb-item"><a href="#">User</a></li>
+								<li class="breadcrumb-item active" aria-current="page">{{ name }}</li>
+							</ol><!-- breadcrumb end -->
+						</div>
+						<!-- page-header end -->
+
+						<div class="col-lg-12">
+							<form class="card">
+								<div class="card-header">
+									<h3 class="card-title">Account Info</h3>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="alert alert-info ml-3" role="alert">
+											Please put your DXN account below to calculate your bonus.
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="form-label">Code</label>
+												<input type="number" class="form-control" id="code">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="form-label">Password</label>
+												<input type="text" class="form-control" id="password">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<!-- .btn-loading -->
+												<button type="button" class="btn btn-purple" id="btn_calc">Calculate</button>
+											</div>
+										</div>
+										<div class="col-md-6"></div>
+										<br>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="form-label">Your Current Bonus</label>
+												<input type="text" class="form-control"  disabled id="bonus">
+											</div>
+										</div>
+										<div class="col-md-6">
+										</div>
+
+										<div class="col-sm-6 col-md-6">
+											<div class="form-group">
+												<label class="form-label">I want to earn</label>
+												<input type="text" class="form-control" placeholder="I want to earn">
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-6">
+											<div class="form-group">
+												<label class="form-label">No.of prefered members</label>
+												<input type="text" class="form-control" placeholder="No.of prefered members">
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-6">
+											<div class="form-group">
+												<label class="form-label">No.of prefered PV per Member</label>
+												<input type="text" class="form-control" placeholder="No.of prefered members">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="form-label">Country</label>
+												<select class="form-control custom-select">
+													<option value="0">--Select--</option>
+													<option value="1">Germany</option>
+													<option value="2">Canada</option>
+													<option value="3">Usa</option>
+													<option value="4">Aus</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="card-footer text-right">
+									<button type="submit" class="btn btn-purple">Submit</button>
+								</div>
+							</form>
+						</div>
+						<!-- row end-->
+						<div class="col-lg-12">
+							<form class="card">
+								<div class="card-header">
+									<h3 class="card-title">Diagram</h3>
+								</div>
+								<div class="card-body">
+									<div class="row" id="graphDiv">
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- row end-->
+					</div>
+				</div>
+				<!-- app-content end-->
+			</div>
+			{{footer.build_site_footer()}}
+		</div>
+		<!-- End Page -->
+		
+		<!-- Back to top -->
+		<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+		<!-- Jquery js-->
+        <script src="{{ url_for('static', filename='assets/js/vendors/jquery-3.2.1.min.js') }}"></script>
+		
+		<!--Bootstrap js-->
+        <script src="{{ url_for('static', filename='assets/js/vendors/bootstrap.bundle.min.js') }}"></script>
+		
+		<!--Jquery Sparkline js-->
+        <script src="{{ url_for('static', filename='assets/js/vendors/jquery.sparkline.min.js') }}"></script>
+		
+		<!-- Chart Circle js-->
+        <script src="{{ url_for('static', filename='assets/js/vendors/circle-progress.min.js') }}"></script>
+		
+		<!-- Star Rating js-->
+        <script src="{{ url_for('static', filename='assets/plugins/rating/jquery.rating-stars.js') }}"></script>
+
+		<!-- Side-menu js-->
+        <script src="{{ url_for('static', filename='assets/plugins/toggle-sidebar/sidemenu.js') }}"></script>
+
+		<!-- Custom scroll bar js-->
+        <script src="{{ url_for('static', filename='assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+
+		<!--Sweet alert-->
+    	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+		<!-- Custom js-->
+		<script src="{{ url_for('static', filename='assets/js/custom.js') }}"></script>
+		
+		<!-- D3 js-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+
+		<!--Block UI-->
+		<script src="{{ url_for('static', filename='assets/js/jquery.blockui.js') }}"></script>
+
+		<script>
+			$(document).ready(function(){
+				$.blockUI.defaults.css.color = '#000'; 
+        		$.blockUI.defaults.css.backgroundColor = '#eee';
+				$("#btn_calc").click(function(){
+					var code = $("#code").val();
+					var password = $("#password").val();
+					if (code == '' || password == '') {
+						swal({
+							title: '',
+							text: "Please put your DXN code and password",
+							icon: "warning",
+							button: "OK",
+						});
+						return
+					}
+					$.blockUI({ message: "This will take some minutes since we should fetch and analyse your ppv data." }); 
+					$.ajax({
+						url: "/user/bonus",
+						type: 'POST',
+						data: {code: code, password: password},
+						success: function(resp) {
+							$.unblockUI();
+							if(resp.status) {
+								$("#bonus").val(resp.bonus);
+							}
+						}
+					})
+				})
+			});
+
+			var treeData = [{
+				"name": "Case",
+				"parent": "null",
+				"children": [
+				{
+					"name": "Intake",
+					"parent": "Case",
+					"children": [
+					{
+						"name": "Validity Check",
+						"parent": "Intake",
+						"children": [
+					{
+						"name": "Valid",
+						"parent": "Validity Check"
+					},
+					{
+						"name": "Invalid",
+						"parent": "Validity Check"
+					},
+					]
+					},
+					{
+						"name": "Acknowledgement",
+						"parent": "Intake"
+					}
+					]
+				},
+				{
+					"name": "Eligibility",
+					"parent": "Case",
+					"children": [
+					{
+						"name": "Eligibility Check",
+						"parent": "Eligibility",
+						"children": [
+					{
+						"name": "Eligibile",
+						"parent": "Eligibility Check"
+					},
+					{
+						"name": "Ineligibile",
+						"parent": "Eligibility Check"
+					},
+					]
+					}
+					]
+				},
+				{
+					"name": "Dispute Resolution",
+					"parent": "Case",
+					"children": [
+					{
+						"name": "Dispute Resolution Process",
+						"parent": "Dispute Resolution"
+					},
+					{
+						"name": "Dispute Resolution Monitoring",
+						"parent": "Dispute Resolution"
+					}
+					]
+				}
+				]
+			}]
+			
+			// ************** Generate the tree diagram	 *****************
+			var margin = {top: 20, right: 120, bottom: 20, left: 120},
+				width = 960 - margin.right - margin.left,
+				height = 500 - margin.top - margin.bottom;
+				
+			var i = 0,
+				duration = 750,
+				root;
+
+			var tree = d3.layout.tree()
+				.size([height, width]);
+
+			var diagonal = d3.svg.diagonal()
+				.projection(function(d) { return [d.y, d.x]; });
+
+			var svg = d3.select("#graphDiv").append("svg")
+				.attr("width", width + margin.right + margin.left)
+				.attr("height", height + margin.top + margin.bottom)
+			.append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+			root = treeData[0];
+			root.x0 = height / 2;
+			root.y0 = 0;
+			
+			update(root);
+
+			d3.select(self.frameElement).style("height", "500px");
+
+			function update(source) {
+
+			// Compute the new tree layout.
+			var nodes = tree.nodes(root).reverse(),
+				links = tree.links(nodes);
+
+			// Normalize for fixed-depth.
+			nodes.forEach(function(d) { d.y = d.depth * 180; });
+
+			// Update the nodes…
+			var node = svg.selectAll("g.node")
+				.data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+			// Enter any new nodes at the parent's previous position.
+			var nodeEnter = node.enter().append("g")
+				.attr("class", "node")
+				.attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+				.on("click", click);
+
+			nodeEnter.append("circle")
+				.attr("r", 1e-6)
+				.style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+			nodeEnter.append("text")
+				.attr("x", function(d) { return d.children || d._children ? -13 : 13; })
+				.attr("dy", ".35em")
+				.attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+				.text(function(d) { return d.name; })
+				.style("fill-opacity", 1e-6);
+
+			// Transition nodes to their new position.
+			var nodeUpdate = node.transition()
+				.duration(duration)
+				.attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+			nodeUpdate.select("circle")
+				.attr("r", 10)
+				.style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+			nodeUpdate.select("text")
+				.style("fill-opacity", 1);
+
+			// Transition exiting nodes to the parent's new position.
+			var nodeExit = node.exit().transition()
+				.duration(duration)
+				.attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+				.remove();
+
+			nodeExit.select("circle")
+				.attr("r", 1e-6);
+
+			nodeExit.select("text")
+				.style("fill-opacity", 1e-6);
+
+			// Update the links…
+			var link = svg.selectAll("path.link")
+				.data(links, function(d) { return d.target.id; });
+
+			// Enter any new links at the parent's previous position.
+			link.enter().insert("path", "g")
+				.attr("class", "link")
+				.attr("d", function(d) {
+					var o = {x: source.x0, y: source.y0};
+					return diagonal({source: o, target: o});
+				});
+
+			// Transition links to their new position.
+			link.transition()
+				.duration(duration)
+				.attr("d", diagonal);
+
+			// Transition exiting nodes to the parent's new position.
+			link.exit().transition()
+				.duration(duration)
+				.attr("d", function(d) {
+					var o = {x: source.x, y: source.y};
+					return diagonal({source: o, target: o});
+				})
+				.remove();
+
+			// Stash the old positions for transition.
+			nodes.forEach(function(d) {
+					d.x0 = d.x;
+					d.y0 = d.y;
+				});
+			}
+
+			// Toggle children on click.
+			function click(d) {
+				if (d.children) {
+					d._children = d.children;
+					d.children = null;
+				} else {
+					d.children = d._children;
+					d._children = null;
+				}
+				update(d);
+			}
+		</script>
+		
+	</body>
+</html>
